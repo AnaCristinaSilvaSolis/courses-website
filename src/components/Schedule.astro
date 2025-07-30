@@ -1,0 +1,170 @@
+---
+// Componente que muestra la disponibilidad horaria y políticas del curso
+
+const scheduleItems = [
+  {
+    title: 'Lunes a viernes',
+    time: '8:00 p.m. – 11:00 p.m.',
+    color: 'from-blue-50 to-blue-100',
+    iconColor: 'text-blue-500',
+  },
+  {
+    title: 'Sábados',
+    time: '10:00 a.m. – 12:00 p.m. y 2:00 p.m. – 5:00 p.m.',
+    color: 'from-green-50 to-green-100',
+    iconColor: 'text-green-500',
+  },
+];
+
+const policies = [
+  {
+    text: 'Las clases deben agendarse con al menos 1 día de anticipación.',
+    iconColor: 'text-orange-500',
+  },
+  {
+    text: 'Si no puedes asistir a una clase programada, puedes reprogramarla antes del inicio de la misma.',
+    iconColor: 'text-blue-500',
+  },
+  {
+    text: 'Las clases se pagan por adelantado.',
+    iconColor: 'text-green-500',
+  },
+];
+---
+
+<section class='py-20 bg-white'>
+  <div class='container mx-auto px-4'>
+    <div class='text-center mb-16'>
+      <h2
+        class='text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent'
+      >
+        ⏰ Disponibilidad horaria
+      </h2>
+      <p class='text-xl text-gray-600 max-w-3xl mx-auto'>
+        Horarios flexibles que se adaptan a tu rutina
+      </p>
+    </div>
+
+    <div class='max-w-4xl mx-auto'>
+      <!-- Horarios disponibles -->
+      <div class='grid md:grid-cols-2 gap-8 mb-12'>
+        {
+          scheduleItems.map((item, index) => (
+            <div
+              class={`bg-gradient-to-br ${item.color} border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 animate-slide-up rounded-lg overflow-hidden`}
+              style={`animation-delay: ${index * 200}ms`}
+            >
+              <div class='text-center p-6'>
+                <div class='flex justify-center mb-4'>
+                  {index === 0 && (
+                    <svg
+                      class={`w-6 h-6 ${item.iconColor}`}
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M8 7V3a4 4 0 118 0v4m-4 8a4 4 0 11-8 0V9a5 5 0 0110 0v6a4 4 0 11-8 0V9'
+                      />
+                    </svg>
+                  )}
+                  {index === 1 && (
+                    <svg
+                      class={`w-6 h-6 ${item.iconColor}`}
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                      />
+                    </svg>
+                  )}
+                </div>
+                <h3 class='text-xl font-bold text-gray-800 mb-4'>
+                  🗓️ {item.title}
+                </h3>
+                <p class='text-center text-lg font-semibold text-gray-700'>
+                  {item.time}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Políticas -->
+      <div
+        class='bg-gradient-to-br from-gray-50 to-blue-50 border-0 shadow-lg animate-fade-in rounded-lg overflow-hidden'
+      >
+        <div class='p-6 text-center border-b border-gray-200'>
+          <h3 class='text-2xl font-bold text-gray-800 mb-4'>
+            📌 Políticas importantes
+          </h3>
+        </div>
+        <div class='p-6'>
+          <div class='space-y-4'>
+            {
+              policies.map((policy, index) => (
+                <div class='flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300'>
+                  {index === 0 && (
+                    <svg
+                      class={`w-5 h-5 ${policy.iconColor} mt-0.5`}
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'
+                      />
+                    </svg>
+                  )}
+                  {index === 1 && (
+                    <svg
+                      class={`w-5 h-5 ${policy.iconColor} mt-0.5`}
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M8 7V3a4 4 0 118 0v4m-4 8a4 4 0 11-8 0V9a5 5 0 0110 0v6a4 4 0 11-8 0V9'
+                      />
+                    </svg>
+                  )}
+                  {index === 2 && (
+                    <svg
+                      class={`w-5 h-5 ${policy.iconColor} mt-0.5`}
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z'
+                      />
+                    </svg>
+                  )}
+                  <p class='text-gray-700 leading-relaxed'>{policy.text}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

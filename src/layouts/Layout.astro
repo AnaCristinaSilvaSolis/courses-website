@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='description'
+      content='Aprende Java desde cero con clases personalizadas. Profesora colombiana con experiencia en desarrollo.'
+    />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='generator' content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name='keywords'
+      content='Java, programación, cursos, clases personalizadas, Spring Boot, bases de datos'
+    />
+    <meta name='author' content='Profesora de Java' />
+
+    <!-- Open Graph -->
+    <meta property='og:title' content={title} />
+    <meta
+      property='og:description'
+      content='Aprende Java desde cero con clases personalizadas y proyectos reales'
+    />
+    <meta property='og:type' content='website' />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html {
+    font-family: system-ui, sans-serif;
+  }
+</style>

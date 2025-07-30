@@ -1,0 +1,223 @@
+---
+// Componente que muestra los 3 paquetes de cursos disponibles
+// Cada paquete incluye información detallada, precio y botón de WhatsApp
+
+const packages = [
+  {
+    id: 1,
+    title: 'Java desde cero',
+    subtitle: '👶 Ideal para principiantes',
+    price: '$240.000 COP',
+    duration: '10 sesiones de 1.5 horas',
+    hourlyRate: '$16.000 COP por hora',
+    color: 'from-blue-500 to-blue-600',
+    features: [
+      'Fundamentos de Java',
+      'Programación orientada a objetos (POO)',
+      'Introducción a programación funcional',
+      'Diapositivas por tema (PDF o PPT)',
+      'Ejercicios guiados',
+      'Proyecto final integrador (tema libre)',
+      'Asesoría personalizada 1:1',
+      'Código del curso en repositorio GitHub privado',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Java + Bases de datos',
+    subtitle: '👨‍💻 Para quienes quieren dar el siguiente paso',
+    price: '$360.000 COP',
+    duration: '15 sesiones de 1.5 horas',
+    hourlyRate: '$16.000 COP por hora',
+    color: 'from-green-500 to-green-600',
+    popular: true,
+    features: [
+      'TODO lo del Paquete 1 +',
+      'Introducción a Bases de Datos Relacionales',
+      'Consultas SQL básicas e intermedias',
+      'Proyecto integrador con conexión a base de datos (JDBC / JPA)',
+    ],
+  },
+  {
+    id: 3,
+    title: 'Java Full + Spring Boot',
+    subtitle: '🧠 Ideal si quieres desarrollar APIs REST desde cero',
+    price: '$480.000 COP',
+    duration: '20 sesiones de 1.5 horas',
+    hourlyRate: '$16.000 COP por hora',
+    color: 'from-purple-500 to-purple-600',
+    features: [
+      'TODO lo de los paquetes anteriores +',
+      'Spring Boot desde cero',
+      'Construcción de API RESTful',
+      'Controladores, Servicios y Repositorios',
+      'Uso de Postman y pruebas básicas',
+      'Proyecto final: API funcional con BD, autenticación básica y documentación',
+    ],
+  },
+];
+
+// Función para generar el mensaje de WhatsApp personalizado por paquete
+const generateWhatsAppMessage = (packageTitle: string, price: string) => {
+  return `Hola! Me interesa el curso ${packageTitle} (${price}). ¿Podrías darme más información?`;
+};
+---
+
+<section id='packages' class='py-20 bg-white'>
+  <div class='container mx-auto px-4'>
+    <div class='text-center mb-16'>
+      <h2
+        class='text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'
+      >
+        📦 Paquetes Disponibles
+      </h2>
+      <p class='text-xl text-gray-600 max-w-3xl mx-auto'>
+        Elige el paquete que mejor se adapte a tu nivel y objetivos de
+        aprendizaje
+      </p>
+    </div>
+
+    <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
+      {
+        packages.map((pkg, index) => (
+          <div
+            class={`relative overflow-hidden bg-white rounded-lg shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 animate-slide-up ${
+              pkg.popular ? 'ring-2 ring-green-500 shadow-lg' : ''
+            }`}
+            style={`animation-delay: ${index * 200}ms`}
+          >
+            {pkg.popular && (
+              <div class='absolute top-4 right-4 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-semibold'>
+                Más Popular
+              </div>
+            )}
+
+            <div class={`bg-gradient-to-r ${pkg.color} text-white p-6`}>
+              <div class='flex items-center gap-3 mb-2'>
+                {pkg.id === 1 && (
+                  <svg
+                    class='w-6 h-6'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z'
+                    />
+                  </svg>
+                )}
+                {pkg.id === 2 && (
+                  <svg
+                    class='w-6 h-6'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4'
+                    />
+                  </svg>
+                )}
+                {pkg.id === 3 && (
+                  <svg
+                    class='w-6 h-6'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9'
+                    />
+                  </svg>
+                )}
+                <h3 class='text-2xl font-bold'>{pkg.title}</h3>
+              </div>
+              <p class='text-blue-100 text-base'>{pkg.subtitle}</p>
+            </div>
+
+            <div class='p-6'>
+              <div class='mb-6'>
+                <div class='text-3xl font-bold text-gray-900 mb-2'>
+                  {pkg.price}
+                </div>
+                <div class='flex items-center gap-2 text-gray-600 mb-1'>
+                  <svg
+                    class='w-4 h-4'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                    />
+                  </svg>
+                  <span class='text-sm'>{pkg.duration}</span>
+                </div>
+                <div class='flex items-center gap-2 text-gray-600'>
+                  <svg
+                    class='w-4 h-4'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1'
+                    />
+                  </svg>
+                  <span class='text-sm'>{pkg.hourlyRate}</span>
+                </div>
+              </div>
+
+              <div class='space-y-3 mb-8'>
+                {pkg.features.map((feature) => (
+                  <div class='flex items-start gap-3'>
+                    <svg
+                      class='w-5 h-5 text-green-500 mt-0.5 flex-shrink-0'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M5 13l4 4L19 7'
+                      />
+                    </svg>
+                    <span class='text-gray-700 text-sm leading-relaxed'>
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={`https://wa.me/573154835887?text=${encodeURIComponent(generateWhatsAppMessage(pkg.title, pkg.price))}`}
+                target='_blank'
+                rel='noopener noreferrer'
+                class={`block w-full text-center bg-gradient-to-r ${pkg.color} hover:opacity-90 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg`}
+              >
+                💬 Consultar por WhatsApp
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

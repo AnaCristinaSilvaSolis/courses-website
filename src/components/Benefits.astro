@@ -1,0 +1,192 @@
+---
+// Componente que muestra las promociones y beneficios disponibles
+
+const benefits = [
+  {
+    title: '"Trae a un amigo"',
+    description:
+      'Ambos reciben $5.000 de descuento por clase en el paquete que elijan.',
+    color: 'from-blue-50 to-blue-100',
+    iconColor: 'text-blue-500',
+  },
+  {
+    title: 'Pago mensual anticipado',
+    description:
+      'Recibe un 10% de descuento sobre el total del paquete si pagas todas las clases por adelantado.',
+    color: 'from-green-50 to-green-100',
+    iconColor: 'text-green-500',
+  },
+  {
+    title: 'Sesión extra gratuita',
+    description:
+      'Si completas todo tu paquete sin cancelaciones ni atrasos, recibes 1 sesión de repaso GRATIS al final del curso.',
+    color: 'from-purple-50 to-purple-100',
+    iconColor: 'text-purple-500',
+  },
+];
+
+const additionalBenefits = [
+  {
+    title: 'Plantillas de código',
+    description: 'Acceso a plantillas y ejemplos prácticos',
+    iconColor: 'text-orange-500',
+  },
+  {
+    title: 'Recursos descargables',
+    description: 'Material complementario para tu aprendizaje',
+    iconColor: 'text-yellow-500',
+  },
+  {
+    title: 'Grabaciones de sesiones',
+    description: 'Tendrás acceso a las grabaciones de todas las sesiones',
+    iconColor: 'text-red-500',
+  },
+];
+---
+
+<section class='py-20 bg-gradient-to-br from-gray-50 to-blue-50'>
+  <div class='container mx-auto px-4'>
+    <div class='text-center mb-16'>
+      <h2
+        class='text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'
+      >
+        🎁 Promociones y Beneficios
+      </h2>
+      <p class='text-xl text-gray-600 max-w-3xl mx-auto'>
+        Aprovecha estas increíbles ofertas y beneficios exclusivos
+      </p>
+    </div>
+
+    <!-- Promociones principales -->
+    <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16'>
+      {
+        benefits.map((benefit, index) => (
+          <div
+            class={`bg-gradient-to-br ${benefit.color} border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 animate-slide-up rounded-lg overflow-hidden`}
+            style={`animation-delay: ${index * 200}ms`}
+          >
+            <div class='text-center p-6 pb-4'>
+              <div class='flex justify-center mb-4'>
+                {index === 0 && (
+                  <svg
+                    class={`w-8 h-8 ${benefit.iconColor}`}
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z'
+                    />
+                  </svg>
+                )}
+                {index === 1 && (
+                  <svg
+                    class={`w-8 h-8 ${benefit.iconColor}`}
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M8 7V3a4 4 0 118 0v4m-4 8a4 4 0 11-8 0V9a5 5 0 0110 0v6a4 4 0 11-8 0V9'
+                    />
+                  </svg>
+                )}
+                {index === 2 && (
+                  <svg
+                    class={`w-8 h-8 ${benefit.iconColor}`}
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7'
+                    />
+                  </svg>
+                )}
+              </div>
+              <h3 class='text-xl font-bold text-gray-800'>
+                💡 {benefit.title}
+              </h3>
+            </div>
+            <div class='px-6 pb-6'>
+              <p class='text-gray-700 text-center leading-relaxed'>
+                {benefit.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Material adicional premium -->
+    <div class='bg-white rounded-2xl shadow-xl p-8 animate-fade-in'>
+      <h3 class='text-2xl font-bold text-center mb-8 text-gray-800'>
+        💡 Material adicional premium
+      </h3>
+      <p class='text-center text-gray-600 mb-8'>
+        Todos los paquetes incluyen acceso a:
+      </p>
+
+      <div class='grid md:grid-cols-3 gap-6'>
+        {
+          additionalBenefits.map((item, index) => (
+            <div class='flex items-center gap-4 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors duration-300'>
+              {index === 0 && (
+                <svg
+                  class={`w-6 h-6 ${item.iconColor}`}
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'
+                  />
+                </svg>
+              )}
+              {index === 1 && (
+                <svg
+                  class={`w-6 h-6 ${item.iconColor}`}
+                  fill='currentColor'
+                  viewBox='0 0 20 20'
+                >
+                  <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
+                </svg>
+              )}
+              {index === 2 && (
+                <svg
+                  class={`w-6 h-6 ${item.iconColor}`}
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z'
+                  />
+                </svg>
+              )}
+              <div>
+                <h4 class='font-semibold text-gray-800'>{item.title}</h4>
+                <p class='text-sm text-gray-600'>{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

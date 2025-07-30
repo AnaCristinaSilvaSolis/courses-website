@@ -1,0 +1,171 @@
+---
+// Componente de formulario de contacto
+// Configurado para funcionar con Netlify Forms
+---
+
+<section id='contact' class='py-20 bg-gradient-to-br from-blue-50 to-purple-50'>
+  <div class='container mx-auto px-4'>
+    <div class='text-center mb-16'>
+      <h2
+        class='text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'
+      >
+        Contáctame
+      </h2>
+      <p class='text-xl text-gray-600 max-w-3xl mx-auto'>
+        ¿Tienes preguntas? Escríbeme y te responderé personalmente
+      </p>
+    </div>
+
+    <div class='max-w-2xl mx-auto'>
+      <div
+        class='bg-white shadow-2xl border-0 animate-slide-up rounded-lg overflow-hidden'
+      >
+        <div
+          class='bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6'
+        >
+          <div class='flex items-center gap-3'>
+            <svg
+              class='w-6 h-6'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+              ></path>
+            </svg>
+            <div>
+              <h3 class='text-2xl font-bold'>Formulario de Contacto</h3>
+              <p class='text-blue-100'>
+                Completa el formulario y te responderé pronto
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class='p-8'>
+          <form
+            name='contact'
+            method='POST'
+            action='/gracias'
+            data-netlify='true'
+            data-netlify-honeypot='bot-field'
+            class='space-y-6'
+          >
+            <!-- Campo oculto para Netlify -->
+            <input type='hidden' name='form-name' value='contact' />
+
+            <!-- Honeypot para spam -->
+            <div class='hidden'>
+              <label for='bot-field'>Don't fill this out if you're human:</label
+              >
+              <input id='bot-field' name='bot-field' />
+            </div>
+
+            <div class='grid md:grid-cols-2 gap-6'>
+              <div class='space-y-2'>
+                <label for='name' class='block text-gray-700 font-medium'>
+                  Nombre completo *
+                </label>
+                <input
+                  id='name'
+                  name='name'
+                  type='text'
+                  required
+                  class='w-full px-3 py-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none'
+                  placeholder='Tu nombre completo'
+                />
+              </div>
+
+              <div class='space-y-2'>
+                <label for='email' class='block text-gray-700 font-medium'>
+                  Correo electrónico *
+                </label>
+                <input
+                  id='email'
+                  name='email'
+                  type='email'
+                  required
+                  class='w-full px-3 py-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none'
+                  placeholder='tu@email.com'
+                />
+              </div>
+            </div>
+
+            <div class='space-y-2'>
+              <label for='phone' class='block text-gray-700 font-medium'>
+                Teléfono (opcional)
+              </label>
+              <input
+                id='phone'
+                name='phone'
+                type='tel'
+                class='w-full px-3 py-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none'
+                placeholder='+57 300 000 0000'
+              />
+            </div>
+
+            <div class='space-y-2'>
+              <label for='package' class='block text-gray-700 font-medium'>
+                Paquete de interés
+              </label>
+              <select
+                id='package'
+                name='package'
+                class='w-full px-3 py-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none'
+              >
+                <option value=''>Selecciona un paquete</option>
+                <option value='Java desde cero'
+                  >Java desde cero - $240.000 COP</option
+                >
+                <option value='Java + Bases de datos'
+                  >Java + Bases de datos - $360.000 COP</option
+                >
+                <option value='Java Full + Spring Boot'
+                  >Java Full + Spring Boot - $480.000 COP</option
+                >
+                <option value='Consulta general'>Consulta general</option>
+              </select>
+            </div>
+
+            <div class='space-y-2'>
+              <label for='message' class='block text-gray-700 font-medium'>
+                Mensaje *
+              </label>
+              <textarea
+                id='message'
+                name='message'
+                required
+                rows='5'
+                class='w-full px-3 py-2 border border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none resize-none'
+                placeholder='Cuéntame sobre tu experiencia previa con programación, tus objetivos de aprendizaje, o cualquier pregunta que tengas...'
+              ></textarea>
+            </div>
+
+            <button
+              type='submit'
+              class='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2'
+            >
+              <svg
+                class='w-4 h-4'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'></path>
+              </svg>
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
