@@ -9,7 +9,7 @@
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://netlify.com/)
 
-[🚀 Ver Demo](https://tu-sitio.netlify.app) • [📧 Contacto](mailto:codecollective25@gmail.com) • [💬 WhatsApp](https://wa.me/573154835887)
+[🚀 Ver Demo](https://codecollectivecursos.netlify.app/) • [📧 Contacto](mailto:codecollective25@gmail.com) • [💬 WhatsApp](https://wa.me/573154835887)
 
 </div>
 
